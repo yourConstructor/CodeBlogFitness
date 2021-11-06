@@ -1,0 +1,36 @@
+﻿using System;
+
+
+namespace CodeBlogFitness.BL.Model
+{
+    /// <summary>
+    /// Пол.
+    /// </summary>
+    public class Gender
+    {
+        /// <summary>
+        ///Название.
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// Создать новый пол.
+        /// </summary>
+        /// <param name="name"> Имя пола. </param>
+        public Gender(string name)
+        {
+            if(string.IsNullOrWhiteSpace(name)) //проверяем входные условия
+            {
+                //если пустое, то выбрасывается исключение
+                throw new ArgumentNullException("Имя пола не может быть пустым или null",nameof(name) );
+            }
+            Name = name;
+        }
+
+        // переопределяем метод  ToString()
+
+        public override string ToString()
+        {
+            return Name ;
+        }
+    }
+}
